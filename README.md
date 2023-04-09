@@ -5,24 +5,22 @@
 ![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-green)
 ![API](https://img.shields.io/badge/API-TMDB-fcba03)
 
-This application provides all the details of the requested movie such as overview, genre, release date, rating, runtime, top cast, reviews, recommended movies, etc.
+ This application provides comprehensive information about any movie that you request, including its overview, genre, release date, rating, runtime, top cast, reviews, recommended movies, and more.
 
-The details of the movies(title, genre, runtime, rating, poster, etc) are fetched using an API by TMDB, https://www.themoviedb.org/documentation/api, and using the IMDB id of the movie in the API, I did web scraping to get the reviews given by the user in the IMDB site using `beautifulsoup4` and performed sentiment analysis on those reviews.
+To retrieve the requested movie's details, the application uses the TMDB API (https://www.themoviedb.org/documentation/api) by sending a request with the movie's IMDB ID. The application also scrapes user reviews from the IMDB website using the Beautifulsoup4 library and performs sentiment analysis on those reviews using the NLTK library.
+
+In addition to this, the application also employs scikit-learn's cosine similarity algorithm to find similar movies and recommend them to the user. The algorithm uses the movie's features such as genre, runtime, rating, and more to calculate the similarity score between two movies. Based on the similarity score, the application recommends a list of movies that the user might be interested in watching.
+
+To use this application, you will need to obtain an API key from TMDB. To obtain one, create an account on their website, click on the API link in your account settings, and fill in all the required details to apply for the API key. If you don't have a website URL, simply enter "NA." Once your request is approved, you'll be able to see the API key in your API sidebar.
+
+To run the project, clone this repository to your local system and install all the required libraries mentioned in the requirements.txt file by running the command pip install -r requirements.txt. Replace YOUR_API_KEY in both places (line no. 23 and 43) of the static/recommend.js file with your API key. Open your terminal/command prompt from the project directory and run the main.py file by executing the command python main.py. Finally, open your browser and type http://127.0.0.1:5000/ in the address bar to use the application.
+
+That's it! You can now use this application to get comprehensive information about any movie, as well as receive recommendations for similar movies that you might enjoy watching.
 
 
- 
 
-## How to get the API key?
 
-Create an account in https://www.themoviedb.org/, click on the `API` link from the left hand sidebar in your account settings and fill all the details to apply for API key. If you are asked for the website URL, just give "NA" if you don't have one. You will see the API key in your `API` sidebar once your request is approved.
 
-## How to run the project?
 
-1. Clone this repository in your local system.
-2. Install all the libraries mentioned in the [requirements.txt] file with the command `pip install -r requirements.txt`.
-3. Replace YOUR_API_KEY in **both** the places (line no. 23 and 43) of `static/recommend.js` file.
-4. Open your terminal/command prompt from your project directory and run the `main.py` file by executing the command `python main.py`.
-5. Go to your browser and type `http://127.0.0.1:5000/` in the address bar.
-6. Hurray! That's it.
 
 
