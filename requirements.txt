@@ -1,8 +1,8 @@
 Flask==1.1.4
 gunicorn
-Jinja2
-MarkupSafe==2.0.1
-Werkzeug
+Jinja2>=2.10.1
+MarkupSafe==2.1.1
+Werkzeug>=0.15
 numpy
 scipy
 nltk
@@ -15,4 +15,4 @@ lxml
 urllib3
 requests
 pickleshare
-itsdangerous
+itsdangerous>=0.24
