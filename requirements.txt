@@ -15,4 +15,4 @@ lxml
 urllib3
 requests
 pickleshare
-itsdangerous>=0.24
+itsdangerous==2.0.1
