@@ -1,6 +1,5 @@
 #Movie-Mood
-
-![Python]<i class="fa-brands fa-python"></i>
+(<i class="fa-brands fa-python"></i>)
 ![Framework](https://img.shields.io/badge/Framework-Flask-red)
 ![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-green)
 ![API](https://img.shields.io/badge/API-TMDB-fcba03)
