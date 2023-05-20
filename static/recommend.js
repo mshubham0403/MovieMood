@@ -39,7 +39,8 @@ $(function () {
 
 // will be invoked when clicking on the recommended movie cards
 function recommendcard(e) {
-  $("#loader").fadeIn();
+  loadHTML("static/loader.html", ".results").fadeIn();
+
   var my_api_key = "1e1412a47d2fd20b037d330cfa68324d";
   var title = e.getAttribute("title");
   load_details(my_api_key, title);
@@ -56,12 +57,15 @@ function load_details(my_api_key, title) {
       title,
     async: false,
     success: function (movie) {
+      console.log("success");
       if (movie.results.length < 1) {
         $(".fail").css("display", "block");
         $(".results").css("display", "none");
-        $("#loader").delay(500).fadeOut();
+        loadHTML("static/loader.html", ".results");
+
       } else if (movie.results.length == 1) {
-        $("#loader").fadeIn();
+        loadHTML("static/loader.html", ".results");
+
         $(".fail").css("display", "none");
         $(".results").delay(1000).css("display", "block");
         var movie_id = movie.results[0].id;
@@ -74,7 +78,8 @@ function load_details(my_api_key, title) {
         var movie_id = "";
         var movie_title = "";
         var movie_title_org = "";
-        $("#loader").fadeIn();
+        loadHTML("static/loader.html", ".results").fadeIn();
+
         $(".fail").css("display", "none");
         $(".results").delay(1000).css("display", "block");
         for (var count in movie.results) {
@@ -104,7 +109,8 @@ function load_details(my_api_key, title) {
     },
     error: function (error) {
       alert("Invalid Request - " + error);
-      $("#loader").delay(500).fadeOut();
+      loadHTML("static/loader.html", ".results").fadeOut();
+
     },
   });
 }
@@ -170,7 +176,9 @@ function get_movie_details(movie_id, my_api_key, movie_title, movie_title_org) {
     },
     error: function (error) {
       alert("API Error! - " + error);
-      $("#loader").delay(500).fadeOut();
+      loadHTML("static/loader.html", ".results").fadeOut();
+
+
     },
   });
 }
@@ -254,7 +262,8 @@ function show_details(
     url: "/recommend",
     dataType: "html",
     complete: function () {
-      $("#loader").delay(500).fadeOut();
+      loadHTML("static/loader.html", ".results").fadeIn();
+
     },
     success: function (response) {
       $(".results").html(response);
@@ -351,7 +360,9 @@ function get_movie_cast(movie_id, my_api_key) {
     },
     error: function (error) {
       alert("Invalid Request! - " + error);
-      $("#loader").delay(500).fadeOut();
+      loadHTML("static/loader.html", ".results").fadeOut();
+
+    
     },
   });
 
@@ -399,7 +410,8 @@ function get_recommendations(movie_id, my_api_key) {
     },
     error: function (error) {
       alert("Invalid Request! - " + error);
-      $("#loader").delay(500).fadeOut();
+      loadHTML("static/loader.html", ".results").fadeOut();
+
     },
   });
   return {
@@ -409,4 +421,8 @@ function get_recommendations(movie_id, my_api_key) {
     rec_year: rec_year,
     rec_vote: rec_vote,
   };
+}
+
+function loadHTML(url, element) {
+  $(element).load(url);
 }
